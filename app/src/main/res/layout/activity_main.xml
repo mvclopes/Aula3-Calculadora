@@ -7,88 +7,91 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/labelAlcoholOrGas"
+        android:id="@+id/labelPower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
-        android:text="@string/alcohol_or_gas"
+        android:text="@string/converter_label"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imgGasStation"
+        android:id="@+id/imgPower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/ic_gas_alcohol_foreground"
+        android:src="@drawable/ic_conversor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelAlcoholOrGas" />
+        app:layout_constraintTop_toBottomOf="@id/labelPower" />
 
     <TextView
-        android:id="@+id/labelBestOption"
-        android:layout_width="wrap_content"
+        android:id="@+id/labelExplanation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/best_option_flex_car"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/power_calculator_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgGasStation" />
+        app:layout_constraintTop_toBottomOf="@id/imgPower" />
 
     <EditText
-        android:id="@+id/inputAlcohol"
+        android:id="@+id/inputName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:hint="@string/alcohol_price"
+        android:hint="@string/hint_name"
+        android:importantForAutofill="no"
+        android:inputType="textCapWords"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelExplanation" />
+
+    <EditText
+        android:id="@+id/inputCv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="@string/cavalo_vapor"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelBestOption" />
-
-    <EditText
-        android:id="@+id/inputGas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:hint="@string/gas_price"
-        android:importantForAutofill="no"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inputAlcohol" />
+        app:layout_constraintTop_toBottomOf="@id/inputName" />
 
     <Button
-        android:id="@+id/btnCalculate"
+        android:id="@+id/btnConverter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/btn_calculate_label"
+        android:text="@string/btn_converter_label"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inputGas" />
+        app:layout_constraintTop_toBottomOf="@id/inputCv" />
 
     <TextView
         android:id="@+id/labelResult"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:textAlignment="center"
         android:textColor="#FF0000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCalculate"
-        tools:text="A melhor opção escolhida é ..." />
+        app:layout_constraintTop_toBottomOf="@id/btnConverter"
+        tools:text="Olá Matheus, a potência: 20W" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

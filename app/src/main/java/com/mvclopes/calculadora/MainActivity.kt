@@ -2,54 +2,48 @@ package com.mvclopes.calculadora
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.btnCalculate
-import kotlinx.android.synthetic.main.activity_main.inputAlcohol
-import kotlinx.android.synthetic.main.activity_main.inputGas
+import kotlinx.android.synthetic.main.activity_main.btnConverter
+import kotlinx.android.synthetic.main.activity_main.inputCv
+import kotlinx.android.synthetic.main.activity_main.inputName
 import kotlinx.android.synthetic.main.activity_main.labelResult
+
+private const val POWER_CONVERTER_RATIO = 735
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Adicionado listener para escutar evento de clique no botão
-        btnCalculate.setOnClickListener { calculatePrice() }
+        // Adicionado listener para escutar evento de clique no botão de converter
+        btnConverter.setOnClickListener { calculatePowerInWatts() }
     }
 
-    private fun calculatePrice() {
-        // Obtenção dos valores de álcool e gasolina dos editTexts
-        val alcoholPrice = inputAlcohol.text.toString()
-        val gasPrice = inputGas.text.toString()
+    private fun calculatePowerInWatts() {
+        // Obtenção do valor de potência em Cavalo Vapor (CV) e nome do usuário
+        val powerInCv = inputCv.text.toString()
+        val name = inputName.text.toString()
 
         // Chamada ao método para validar os valores inseridos pelo usuário
-        if (isValidInputs(alcoholPrice, gasPrice)) {
-            chooseBestOption(alcoholPrice, gasPrice)
+        if (isValidInputs(powerInCv, name)) {
+            converterPowerToWatts(powerInCv, name)
+        } else {
+            // Setando texto para situação de dados inválidos
+            labelResult.text = getString(R.string.error)
         }
 
     }
 
-    /*
-        Método para determinar qual combustível possui melhor custo benefício,
-        setando resultado na label, de modo a informar o usuário.
-     */
-
-    private fun chooseBestOption(alcoholPrice: String, gasPrice: String) {
+    // Método para converter potência de Cavalo Vapor (CV) para Watts (W)
+    private fun converterPowerToWatts(powerInCv: String, name: String) {
         // Conversão dos valores inseridos de String para Double (Texto para decimal)
-        val alcoholValue = alcoholPrice.toDouble()
-        val gasValue = gasPrice.toDouble()
+        val powerValue = powerInCv.toDouble()
 
-        val result = alcoholValue / gasValue
-        labelResult.text = getBestOptionLabel(result)
+        val result = powerValue * POWER_CONVERTER_RATIO
+        labelResult.text = getString(R.string.power_result, name, result.toString())
     }
 
-    // Método para selecionar a string correta de acordo com o custo benefício (álcool/gasolina)
-    private fun getBestOptionLabel(result: Double): String {
-        val option = if (result >= 0.7) "gasolina" else "álcool"
-        return getString(R.string.best_option_result, option)
-    }
-
-    // Método para validar se os valores inseridos nos campos de preço da gasolina e álcool são válidos
-    private fun isValidInputs(alcoholPrice: String, gasPrice: String): Boolean {
-        return !(alcoholPrice.isEmpty() || gasPrice.isEmpty())
+    // Método para validar se os valores inseridos são válidos
+    private fun isValidInputs(powerInCv: String, name: String): Boolean {
+        return powerInCv.isNotEmpty() && name.isNotEmpty()
     }
 }

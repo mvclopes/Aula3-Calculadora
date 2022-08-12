@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Calculadora</string>
-    <string name="alcohol_or_gas">Álcool ou gasolina</string>
-    <string name="best_option_flex_car">Melhor opção para seu carro Flex!</string>
-    <string name="best_option_result">Melhor opção é %s</string>
-    <string name="alcohol_price">Preço do álcool R$ 3,70</string>
-    <string name="gas_price">Preço da gasolina R$ 5,75</string>
-    <string name="btn_calculate_label">Calcular</string>
+    <string name="converter_label">Conversor de Potência (CV - W)</string>
+    <string name="power_calculator_label">Tem dúvida para converter cavalo vapor (CV) em Watts? Então insira valores abaixo</string>
+    <string name="power_result">Olá %s, a potência: %sW</string>
+    <string name="cavalo_vapor">Cavalo Vapor (CV)</string>
+    <string name="watts">Watts (W)</string>
+    <string name="btn_converter_label">Converter</string>
+    <string name="hint_name">Insira seu nome</string>
+    <string name="error">Favor preencher os campos corretamente</string>
 </resources>
