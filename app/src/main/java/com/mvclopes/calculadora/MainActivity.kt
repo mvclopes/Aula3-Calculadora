@@ -24,8 +24,9 @@ class MainActivity : AppCompatActivity() {
         // Chamada ao método para validar os valores inseridos pelo usuário
         if (isValidInputs(alcoholPrice, gasPrice)) {
             chooseBestOption(alcoholPrice, gasPrice)
+        } else {
+            labelResult.text = getString(R.string.error)
         }
-
     }
 
     /*

@@ -6,4 +6,5 @@
     <string name="alcohol_price">Preço do álcool R$ 3,70</string>
     <string name="gas_price">Preço da gasolina R$ 5,75</string>
     <string name="btn_calculate_label">Calcular</string>
+    <string name="error">Favor preencher os campos corretamente</string>
 </resources>

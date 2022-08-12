@@ -1,4 +1,4 @@
-# Aula3 Calculadora de custo bnefício dos combustíveis
+# Aula3 Calculadora de custo benefício dos combustíveis
 ![Build](https://img.shields.io/static/v1?label=Versão&message=1.0&color=green) <br>
 
 ## Introdução
